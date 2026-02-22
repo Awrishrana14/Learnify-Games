@@ -3,19 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learnify Games - Class 10 Punjab Board Full Syllabus</title>
+<title>Learnify Games - Biology Chapter 1</title>
 <style>
-body { font-family:'Segoe UI',sans-serif;margin:0;background:#e8f5e9; }
-header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size:28px;font-weight:bold; }
-.container { max-width:900px;margin:auto;padding:20px; }
-.btn { display:block;width:100%;margin:10px 0;padding:15px;border:none;border-radius:12px;background:#ffffff;font-size:18px;font-weight:bold;cursor:pointer;transition:0.3s;box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+body { font-family:'Segoe UI',sans-serif; margin:0; background:#e8f5e9; }
+header { background:#6a1b9a; color:white; text-align:center; padding:20px; font-size:28px; font-weight:bold; }
+.container { max-width:900px; margin:auto; padding:20px; }
+.btn { display:block; width:100%; margin:10px 0; padding:15px; border:none; border-radius:12px; background:#ffffff; font-size:18px; font-weight:bold; cursor:pointer; transition:0.3s; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
 .btn:hover { background:#ffd54f; transform:scale(1.03); }
-.content { display:none;background:white;margin:10px 0;padding:20px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.15); }
-.option { display:block;background:#f3e5f5;margin:5px 0;padding:8px;border-radius:6px;cursor:pointer;position:relative; }
-.icon { position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:18px;display:none; }
-.video-box { position:relative;padding-bottom:56.25%;height:0;margin:10px 0; }
-.video-box iframe { position:absolute;width:100%;height:100%;border-radius:12px; }
-.tab-btn { background:#c5cae9;margin:5px 0; }
+.tab-buttons { display:flex; flex-direction:column; gap:5px; margin:10px 0; }
+.tab-content { display:none; background:white; padding:15px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin:10px 0; }
+.option { display:block; background:#f3e5f5; margin:5px 0; padding:10px; border-radius:6px; cursor:pointer; position:relative; }
+.option .icon { position:absolute; right:10px; top:50%; transform:translateY(-50%); font-size:18px; display:none; }
 .mode-toggle { margin:10px 0; display:flex; gap:10px; }
 .mode-toggle button { flex:1; padding:10px; border:none; border-radius:10px; cursor:pointer; background:#fff59d; }
 .mode-toggle button:hover { background:#ffe082; }
@@ -23,114 +21,150 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 .mistakes h4 { margin:0 0 5px 0; }
 .mistake-item { padding:5px; border-bottom:1px solid #e57373; cursor:pointer; }
 .mistake-item:hover { background:#ef9a9a; }
+.video-box { position:relative; padding-bottom:56.25%; height:0; margin:10px 0; }
+.video-box iframe { position:absolute; width:100%; height:100%; border-radius:12px; }
 </style>
 </head>
 <body>
-<header>🎮 Learnify Games - Class 10 Punjab Board Full Syllabus</header>
+
+<header>🎮 Learnify Games - Biology Chapter 1</header>
 <div class="container">
 
-<!-- SUBJECTS -->
-<div id="subjects">
-<button class="btn" onclick="showPage('bio')">🧬 Biology</button>
-<button class="btn" onclick="showPage('phy')">⚡ Physics</button>
-<button class="btn" onclick="showPage('chem')">🧪 Chemistry</button>
-<button class="btn" onclick="showPage('cs')">💻 Computer Science</button>
-</div>
+<!-- Back Button -->
+<button class="btn" onclick="window.location.href='../../index.html'">← Back to Subjects</button>
 
-<!-- Example for BIOLOGY Chapter 1 -->
-<div id="bio" class="content">
-<button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
-<h2>Biology — Select Chapter</h2>
-<button class="btn tab-btn" onclick="showChapter('bio-ch1')">Chapter 1: Cell Biology</button>
-<div id="bio-ch1" class="content">
-<button class="btn" onclick="backToChapters('bio')">← Back to Chapters</button>
+<!-- Mode Toggle -->
 <div class="mode-toggle">
-<button onclick="setMode('english')">English</button>
-<button onclick="setMode('urdu')">Urdu</button>
-<button onclick="setMode('mix')">Mix</button>
+  <button onclick="setMode('english')">English</button>
+  <button onclick="setMode('urdu')">Urdu</button>
+  <button onclick="setMode('mix')">Mix</button>
 </div>
 
-<h3>MCQs (40)</h3>
-<div id="bio-ch1-mcq">
-<!-- Placeholder MCQs -->
-<div class="option" onclick="checkMCQ(this,true,'Q1')">The basic unit of life?<span class="icon">✔</span></div>
-<div class="option" onclick="checkMCQ(this,false,'Q1')">Tissue<span class="icon">✖</span></div>
-<div class="option" onclick="checkMCQ(this,false,'Q1')">Organ<span class="icon">✖</span></div>
-<div class="option" onclick="checkMCQ(this,false,'Q1')">Atom<span class="icon">✖</span></div>
-<!-- Repeat up to 40–50 questions -->
+<!-- Tabs -->
+<div class="tab-buttons">
+  <button onclick="showTab('mcqs')">MCQs</button>
+  <button onclick="showTab('short')">Short Questions</button>
+  <button onclick="showTab('long')">Long Questions</button>
+  <button onclick="showTab('revision')">Rapid Revision</button>
+  <button onclick="showTab('video')">Lecture Video</button>
+  <button onclick="showTab('game')">Game Zone</button>
+  <button onclick="showTab('mistakes')">Current Mistakes</button>
 </div>
 
-<div class="mistakes">
-<h4>Current Mistakes</h4>
-<div id="bio-ch1-mistakes"><p>No mistakes yet.</p></div>
+<!-- MCQs Tab -->
+<div id="mcqs" class="tab-content">
+  <h3>MCQs</h3>
+  <div class="option" onclick="checkMCQ(this,true,'Q1')">The basic unit of life?<span class="icon"></span></div>
+  <div class="option" onclick="checkMCQ(this,false,'Q1')">Tissue<span class="icon"></span></div>
+  <div class="option" onclick="checkMCQ(this,false,'Q1')">Organ<span class="icon"></span></div>
+  <div class="option" onclick="checkMCQ(this,false,'Q1')">Atom<span class="icon"></span></div>
+
+  <div class="option" onclick="checkMCQ(this,true,'Q2')">DNA stands for?<span class="icon"></span></div>
+  <div class="option" onclick="checkMCQ(this,false,'Q2')">Deoxyribonucleic Acides<span class="icon"></span></div>
+  <div class="option" onclick="checkMCQ(this,false,'Q2')">Dioxyribonucleic<span class="icon"></span></div>
+  <div class="option" onclick="checkMCQ(this,false,'Q2')">None<span class="icon"></span></div>
+
+  <!-- Add 40–50 MCQs similarly -->
 </div>
 
-<h3>Short Questions (40–50)</h3>
-<p>Q1: Define cell.<br><b>Ans:</b> Cell is the basic structural and functional unit of life.</p>
-
-<h3>Long Questions</h3>
-<p>Q1: Explain the structure and function of cell organelles.<br><b>Ans:</b> [Detailed answer placeholder]</p>
-
-<h3>Numerical Problems</h3>
-<p>Placeholder for solved numerical examples...</p>
-
-<h3>Rapid Revision Chart</h3>
-<p>Placeholder for key points / quick review...</p>
-
-<h3>Lecture Video</h3>
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed/HQh2Jb2qC9A" allowfullscreen></iframe>
+<!-- Short Questions Tab -->
+<div id="short" class="tab-content">
+  <h3>Short Questions</h3>
+  <p>Q1: Define Cell.<br><b>Ans:</b> Cell is the basic structural and functional unit of life.</p>
+  <p>Q2: What is DNA?<br><b>Ans:</b> DNA carries genetic information.</p>
+  <!-- Add 40–50 important short questions -->
 </div>
 
-<h3>Game Zone</h3>
-<p>Placeholder for interactive games/quizzes.</p>
-</div>
-</div>
-
-<!-- Repeat similar structure for other chapters and subjects -->
-<!-- PHYSICS, CHEMISTRY, COMPUTER SCIENCE placeholders -->
-<div id="phy" class="content">
-<button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
-<h2>Physics — Select Chapter</h2>
-<p>Chapters + MCQs placeholders ready.</p>
-</div>
-<div id="chem" class="content">
-<button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
-<h2>Chemistry — Select Chapter</h2>
-<p>Chapters + MCQs placeholders ready.</p>
-</div>
-<div id="cs" class="content">
-<button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
-<h2>Computer Science — Select Chapter</h2>
-<p>Chapters + MCQs placeholders ready.</p>
+<!-- Long Questions Tab -->
+<div id="long" class="tab-content">
+  <h3>Long Questions</h3>
+  <p>Q1: Explain Cell Structure with diagram.<br><b>Ans:</b> Detailed explanation with labeled diagram placeholder.</p>
+  <p>Q2: Explain DNA Structure.<br><b>Ans:</b> Double helix structure, base pairing, functions...</p>
+  <!-- Add all long questions topic-wise -->
 </div>
 
+<!-- Rapid Revision -->
+<div id="revision" class="tab-content">
+  <h3>Rapid Revision Chart</h3>
+  <p>Topic | Key Points | Diagram/Formula<br>
+     Cell | Basic Unit of Life | Cell diagram placeholder<br>
+     DNA | Genetic Material | Helix diagram placeholder</p>
 </div>
+
+<!-- Lecture Video -->
+<div id="video" class="tab-content">
+  <h3>Lecture Video</h3>
+  <div class="video-box">
+    <iframe src="https://www.youtube.com/embed/HQh2Jb2qC9A" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Game Zone -->
+<div id="game" class="tab-content">
+  <h3>Game Zone</h3>
+  <p>Interactive quiz / matching games placeholder for this chapter.</p>
+</div>
+
+<!-- Mistakes -->
+<div id="mistakes" class="tab-content">
+  <h3>Current Mistakes</h3>
+  <div id="mistake-list"><p>No mistakes yet.</p></div>
+</div>
+
+</div>
+
 <script>
 let currentMode='english';
 let mistakes=[];
-function showPage(id){document.getElementById('subjects').style.display='none';document.getElementById(id).style.display='block';}
-function backToSubjects(){document.querySelectorAll('.content').forEach(c=>c.style.display='none');document.getElementById('subjects').style.display='block';}
-function showChapter(id){document.querySelectorAll('.content').forEach(c=>c.style.display='none');document.getElementById(id).style.display='block';}
-function backToChapters(subject){document.querySelectorAll('#'+subject+' .content').forEach(c=>c.style.display='none');}
+
 function setMode(mode){ currentMode=mode; alert("Mode switched to: "+mode); }
-function checkMCQ(el,isCorrect,questionText){
+
+function showTab(id){
+  document.querySelectorAll('.tab-content').forEach(t=>t.style.display='none');
+  document.getElementById(id).style.display='block';
+}
+
+function checkMCQ(el,isCorrect,qID){
   const icon=el.querySelector('.icon');
   icon.style.display='inline';
   icon.textContent = isCorrect ? '✔' : '✖';
   el.style.pointerEvents='none';
+
   const msg=document.createElement('p');
   msg.textContent=isCorrect?'Correct':'Wrong';
   el.parentNode.insertBefore(msg, el.nextSibling);
   setTimeout(()=>msg.remove(),2000);
-  if(!isCorrect){ if(!mistakes.includes(questionText)){ mistakes.push(questionText); updateMistakes(); } }
-  else{ const index=mistakes.indexOf(questionText); if(index>-1){ mistakes.splice(index,1); updateMistakes(); } }
+
+  if(!isCorrect){
+    if(!mistakes.includes(qID)){
+      mistakes.push(qID);
+      updateMistakes();
+    }
+  } else {
+    const index=mistakes.indexOf(qID);
+    if(index>-1){
+      mistakes.splice(index,1);
+      updateMistakes();
+    }
+  }
 }
+
 function updateMistakes(){
-  const container=document.getElementById('bio-ch1-mistakes'); container.innerHTML='';
-  if(mistakes.length===0){ container.innerHTML='<p>No mistakes yet.</p>'; } 
-  else{ mistakes.forEach(q=>{ const div=document.createElement('div'); div.className='mistake-item'; div.textContent=q; div.onclick=()=>alert('Attempt question again: '+q); container.appendChild(div); }); }
+  const container=document.getElementById('mistake-list');
+  container.innerHTML='';
+  if(mistakes.length===0){
+    container.innerHTML='<p>No mistakes yet.</p>';
+  } else {
+    mistakes.forEach(q=>{
+      const div=document.createElement('div');
+      div.className='mistake-item';
+      div.textContent=q;
+      div.onclick=()=>alert('Attempt question again: '+q);
+      container.appendChild(div);
+    });
+  }
 }
 </script>
+
 </body>
 </html>
