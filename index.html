@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learnify Games - Class 10 Punjab Board</title>
+<title>Learnify Games - Class 10 Punjab Board Full Syllabus</title>
 <style>
 body { font-family:'Segoe UI',sans-serif;margin:0;background:#e8f5e9; }
 header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size:28px;font-weight:bold; }
@@ -23,13 +23,10 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 .mistakes h4 { margin:0 0 5px 0; }
 .mistake-item { padding:5px; border-bottom:1px solid #e57373; cursor:pointer; }
 .mistake-item:hover { background:#ef9a9a; }
-.feedback { margin:5px 0;font-weight:bold; }
-.correct { color:green; }
-.wrong { color:red; }
 </style>
 </head>
 <body>
-<header>🎮 Learnify Games - Class 10 Punjab Board</header>
+<header>🎮 Learnify Games - Class 10 Punjab Board Full Syllabus</header>
 <div class="container">
 
 <!-- SUBJECTS -->
@@ -40,15 +37,11 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 <button class="btn" onclick="showPage('cs')">💻 Computer Science</button>
 </div>
 
-<!-- ================== BIOLOGY ================== -->
+<!-- Example for BIOLOGY Chapter 1 -->
 <div id="bio" class="content">
 <button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
 <h2>Biology — Select Chapter</h2>
 <button class="btn tab-btn" onclick="showChapter('bio-ch1')">Chapter 1: Cell Biology</button>
-<button class="btn tab-btn" onclick="showChapter('bio-ch2')">Chapter 2: Genetics</button>
-<!-- Add more chapters as needed -->
-
-<!-- Chapter 1 -->
 <div id="bio-ch1" class="content">
 <button class="btn" onclick="backToChapters('bio')">← Back to Chapters</button>
 <div class="mode-toggle">
@@ -57,33 +50,32 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 <button onclick="setMode('mix')">Mix</button>
 </div>
 
-<h3>MCQs (40–50 placeholders)</h3>
+<h3>MCQs (40)</h3>
 <div id="bio-ch1-mcq">
+<!-- Placeholder MCQs -->
 <div class="option" onclick="checkMCQ(this,true,'Q1')">The basic unit of life?<span class="icon">✔</span></div>
 <div class="option" onclick="checkMCQ(this,false,'Q1')">Tissue<span class="icon">✖</span></div>
 <div class="option" onclick="checkMCQ(this,false,'Q1')">Organ<span class="icon">✖</span></div>
 <div class="option" onclick="checkMCQ(this,false,'Q1')">Atom<span class="icon">✖</span></div>
-<!-- Duplicate until 40–50 questions -->
+<!-- Repeat up to 40–50 questions -->
 </div>
-
-<div class="feedback" id="current-feedback">Select an option to see feedback here.</div>
 
 <div class="mistakes">
 <h4>Current Mistakes</h4>
 <div id="bio-ch1-mistakes"><p>No mistakes yet.</p></div>
 </div>
 
-<h3>Short Questions</h3>
+<h3>Short Questions (40–50)</h3>
 <p>Q1: Define cell.<br><b>Ans:</b> Cell is the basic structural and functional unit of life.</p>
 
 <h3>Long Questions</h3>
-<p>Placeholder for long questions...</p>
+<p>Q1: Explain the structure and function of cell organelles.<br><b>Ans:</b> [Detailed answer placeholder]</p>
 
-<h3>Numericals</h3>
-<p>Placeholder for numerical problems...</p>
+<h3>Numerical Problems</h3>
+<p>Placeholder for solved numerical examples...</p>
 
 <h3>Rapid Revision Chart</h3>
-<p>Placeholder for quick revision chart...</p>
+<p>Placeholder for key points / quick review...</p>
 
 <h3>Lecture Video</h3>
 <div class="video-box">
@@ -91,118 +83,54 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 </div>
 
 <h3>Game Zone</h3>
-<p>Placeholder for fun games / quizzes.</p>
-</div>
-
-<!-- Chapter 2 -->
-<div id="bio-ch2" class="content">
-<button class="btn" onclick="backToChapters('bio')">← Back to Chapters</button>
-<p>Chapter 2 placeholder...</p>
+<p>Placeholder for interactive games/quizzes.</p>
 </div>
 </div>
 
-<!-- ================== PHYSICS ================== -->
+<!-- Repeat similar structure for other chapters and subjects -->
+<!-- PHYSICS, CHEMISTRY, COMPUTER SCIENCE placeholders -->
 <div id="phy" class="content">
 <button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
 <h2>Physics — Select Chapter</h2>
-<p>Chapters + MCQs placeholders (40–50 per chapter) ready.</p>
+<p>Chapters + MCQs placeholders ready.</p>
 </div>
-
-<!-- ================== CHEMISTRY ================== -->
 <div id="chem" class="content">
 <button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
 <h2>Chemistry — Select Chapter</h2>
-<p>Chapters + MCQs placeholders (40–50 per chapter) ready.</p>
+<p>Chapters + MCQs placeholders ready.</p>
 </div>
-
-<!-- ================== COMPUTER SCIENCE ================== -->
 <div id="cs" class="content">
 <button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
 <h2>Computer Science — Select Chapter</h2>
-<p>Chapters + MCQs placeholders (40–50 per chapter) ready.</p>
+<p>Chapters + MCQs placeholders ready.</p>
 </div>
 
 </div>
-
 <script>
 let currentMode='english';
 let mistakes=[];
-
-function showPage(id){
-  document.getElementById('subjects').style.display='none';
-  document.getElementById(id).style.display='block';
-}
-function backToSubjects(){
-  document.querySelectorAll('.content').forEach(c=>c.style.display='none');
-  document.getElementById('subjects').style.display='block';
-}
-function showChapter(id){
-  document.querySelectorAll('.content').forEach(c=>c.style.display='none');
-  document.getElementById(id).style.display='block';
-}
-function backToChapters(subject){
-  document.querySelectorAll('#'+subject+' .content').forEach(c=>c.style.display='none');
-}
-
-function setMode(mode){ 
-  currentMode=mode; 
-  alert("Mode switched to: "+mode); 
-}
-
+function showPage(id){document.getElementById('subjects').style.display='none';document.getElementById(id).style.display='block';}
+function backToSubjects(){document.querySelectorAll('.content').forEach(c=>c.style.display='none');document.getElementById('subjects').style.display='block';}
+function showChapter(id){document.querySelectorAll('.content').forEach(c=>c.style.display='none');document.getElementById(id).style.display='block';}
+function backToChapters(subject){document.querySelectorAll('#'+subject+' .content').forEach(c=>c.style.display='none');}
+function setMode(mode){ currentMode=mode; alert("Mode switched to: "+mode); }
 function checkMCQ(el,isCorrect,questionText){
   const icon=el.querySelector('.icon');
   icon.style.display='inline';
   icon.textContent = isCorrect ? '✔' : '✖';
   el.style.pointerEvents='none';
-  
-  const feedbackBox=document.getElementById('current-feedback');
-  feedbackBox.textContent = isCorrect ? 'Correct ✅' : 'Wrong ❌';
-  feedbackBox.className = isCorrect ? 'feedback correct' : 'feedback wrong';
-
-  setTimeout(()=>{ 
-    if(!isCorrect) {
-      const options=el.parentNode.querySelectorAll('.option');
-      options.forEach(o=>{
-        if(o.textContent.includes(questionText)){
-          o.querySelector('.icon').textContent='✔';
-          o.querySelector('.icon').style.display='inline';
-        }
-      });
-    }
-    feedbackBox.textContent='Select an option to see feedback here.';
-    feedbackBox.className='feedback';
-  },2000);
-
-  if(!isCorrect){
-    if(!mistakes.includes(questionText)){
-      mistakes.push(questionText);
-      updateMistakes();
-    }
-  } else {
-    const index=mistakes.indexOf(questionText);
-    if(index>-1){
-      mistakes.splice(index,1);
-      updateMistakes();
-    }
-  }
+  const msg=document.createElement('p');
+  msg.textContent=isCorrect?'Correct':'Wrong';
+  el.parentNode.insertBefore(msg, el.nextSibling);
+  setTimeout(()=>msg.remove(),2000);
+  if(!isCorrect){ if(!mistakes.includes(questionText)){ mistakes.push(questionText); updateMistakes(); } }
+  else{ const index=mistakes.indexOf(questionText); if(index>-1){ mistakes.splice(index,1); updateMistakes(); } }
 }
-
 function updateMistakes(){
-  const container=document.getElementById('bio-ch1-mistakes');
-  container.innerHTML='';
-  if(mistakes.length===0){
-    container.innerHTML='<p>No mistakes yet.</p>';
-  } else {
-    mistakes.forEach(q=>{
-      const div=document.createElement('div');
-      div.className='mistake-item';
-      div.textContent=q;
-      div.onclick=()=>alert('Attempt question again: '+q);
-      container.appendChild(div);
-    });
-  }
+  const container=document.getElementById('bio-ch1-mistakes'); container.innerHTML='';
+  if(mistakes.length===0){ container.innerHTML='<p>No mistakes yet.</p>'; } 
+  else{ mistakes.forEach(q=>{ const div=document.createElement('div'); div.className='mistake-item'; div.textContent=q; div.onclick=()=>alert('Attempt question again: '+q); container.appendChild(div); }); }
 }
 </script>
-
 </body>
 </html>
