@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learnify Games - Class 10 Biology Part 1</title>
+<title>Learnify Games - Class 10 Biology Full Book</title>
 <style>
 body { font-family:'Segoe UI',sans-serif;margin:0;background:#e8f5e9; }
 header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size:28px;font-weight:bold; }
-.container { max-width:900px;margin:auto;padding:20px; }
+.container { max-width:1000px;margin:auto;padding:20px; }
 .btn { display:block;width:100%;margin:10px 0;padding:15px;border:none;border-radius:12px;background:#ffffff;font-size:18px;font-weight:bold;cursor:pointer;transition:0.3s;box-shadow:0 4px 10px rgba(0,0,0,0.1); }
 .btn:hover { background:#ffd54f; transform:scale(1.03); }
 .content { display:none;background:white;margin:10px 0;padding:20px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.15); }
@@ -26,28 +26,42 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 </style>
 </head>
 <body>
-<header>🎮 Learnify Games - Class 10 Biology Part 1</header>
+<header>🎮 Learnify Games - Class 10 Biology Full Book</header>
 <div class="container">
 
 <!-- SUBJECT: BIOLOGY -->
 <div id="bio">
-<h2>Biology — Select Chapter (Part 1)</h2>
+<h2>Biology — Select Chapter</h2>
+<!-- Chapter Buttons -->
 <button class="btn tab-btn" onclick="showChapter('bio-ch1')">Chapter 1: Cell Biology</button>
 <button class="btn tab-btn" onclick="showChapter('bio-ch2')">Chapter 2: Genetics</button>
-<button class="btn tab-btn" onclick="showChapter('bio-ch3')">Chapter 3: Evolution</button>
+<button class="btn tab-btn" onclick="showChapter('bio-ch3')">Chapter 3: Nutrition</button>
+<button class="btn tab-btn" onclick="showChapter('bio-ch4')">Chapter 4: Photosynthesis</button>
+<button class="btn tab-btn" onclick="showChapter('bio-ch5')">Chapter 5: Transport in Plants</button>
+<button class="btn tab-btn" onclick="showChapter('bio-ch6')">Chapter 6: Respiration</button>
+<button class="btn tab-btn" onclick="showChapter('bio-ch7')">Chapter 7: Reproduction</button>
+<button class="btn tab-btn" onclick="showChapter('bio-ch8')">Chapter 8: Biotechnology</button>
+<button class="btn tab-btn" onclick="showChapter('bio-ch9')">Chapter 9: Human Health & Disease</button>
 </div>
 
-<!-- ================== CHAPTER 1 ================== -->
+<!-- ================== CHAPTERS CONTENT ================== -->
+<!-- Repeat this block for Chapters 1–9 -->
 <div id="bio-ch1" class="content">
 <button class="btn" onclick="backToChapters()">← Back to Chapters</button>
+<div class="mode-toggle">
+<button onclick="setMode('english')">English</button>
+<button onclick="setMode('urdu')">Urdu</button>
+<button onclick="setMode('mix')">Mix</button>
+</div>
+
 <h3>MCQs</h3>
 <div id="bio-ch1-mcq">
-<!-- Example MCQs -->
-<div class="option" onclick="checkMCQ(this,true,'The basic unit of life?')">The basic unit of life?<span class="icon">✔</span></div>
-<div class="option" onclick="checkMCQ(this,false,'The basic unit of life?')">Tissue<span class="icon">✖</span></div>
-<div class="option" onclick="checkMCQ(this,false,'The basic unit of life?')">Organ<span class="icon">✖</span></div>
-<div class="option" onclick="checkMCQ(this,false,'The basic unit of life?')">Atom<span class="icon">✖</span></div>
-<!-- Add remaining 36–46 MCQs for full 40–50 -->
+<!-- Example MCQ -->
+<div class="option" onclick="checkMCQ(this,true,'Q1: Basic unit of life?')">Cell<span class="icon">✔</span></div>
+<div class="option" onclick="checkMCQ(this,false,'Q1: Basic unit of life?')">Tissue<span class="icon">✖</span></div>
+<div class="option" onclick="checkMCQ(this,false,'Q1: Basic unit of life?')">Organ<span class="icon">✖</span></div>
+<div class="option" onclick="checkMCQ(this,false,'Q1: Basic unit of life?')">Molecule<span class="icon">✖</span></div>
+<!-- Duplicate for 40–50 MCQs -->
 </div>
 
 <div class="mistakes">
@@ -56,43 +70,31 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 </div>
 
 <h3>Short Questions</h3>
-<p>Q1: Define Cell.<br><b>Ans:</b> Cell is the basic structural and functional unit of life.</p>
-<p>Q2: Functions of Cell Membrane?<br><b>Ans:</b> Protects the cell and regulates what enters/exits.</p>
-<!-- Add remaining short questions per chapter -->
+<p>Q1: Define cell.<br><b>Ans:</b> Cell is the basic structural and functional unit of life.</p>
 
 <h3>Long Questions</h3>
-<p>Q1: Explain the structure and function of the cell.<br><b>Ans:</b> Cell consists of nucleus, cytoplasm, and cell membrane...</p>
-<!-- Add remaining long questions -->
+<p>Q1: Explain structure of plant and animal cell.<br><b>Ans:</b> Plant cell has cell wall, chloroplast, vacuole...</p>
 
 <h3>Rapid Revision Chart</h3>
-<p>Cell → Basic unit of life | Membrane → Protection | Nucleus → Control center...</p>
-<!-- Add remaining revision notes -->
+<p>Cell → Basic unit | Nucleus → Controls activities | Cytoplasm → Jelly-like substance</p>
 
 <h3>Lecture Video</h3>
 <div class="video-box">
-<iframe src="https://www.youtube.com/embed/HQh2Jb2qC9A" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
 </div>
 
 <h3>Game Zone</h3>
-<p>Placeholder for fun games / quizzes.</p>
+<p>Placeholder for interactive quizzes / games.</p>
 </div>
 
-<!-- ================== CHAPTER 2 ================== -->
-<div id="bio-ch2" class="content">
-<button class="btn" onclick="backToChapters()">← Back to Chapters</button>
-<p>Chapter 2: Genetics — MCQs, Short/Long Questions, Revision, Video, Game placeholders</p>
-</div>
-
-<!-- ================== CHAPTER 3 ================== -->
-<div id="bio-ch3" class="content">
-<button class="btn" onclick="backToChapters()">← Back to Chapters</button>
-<p>Chapter 3: Evolution — MCQs, Short/Long Questions, Revision, Video, Game placeholders</p>
-</div>
+<!-- Duplicate blocks for bio-ch2 to bio-ch9, each with unique MCQs, short/long questions, video and revision charts -->
 
 </div>
 
 <script>
+let currentMode='english';
 let mistakes=[];
+
 function showChapter(id){
   document.querySelectorAll('.content').forEach(c=>c.style.display='none');
   document.getElementById(id).style.display='block';
@@ -100,6 +102,8 @@ function showChapter(id){
 function backToChapters(){
   document.querySelectorAll('.content').forEach(c=>c.style.display='none');
 }
+function setMode(mode){ currentMode=mode; alert("Mode switched to: "+mode); }
+
 function checkMCQ(el,isCorrect,questionText){
   const icon=el.querySelector('.icon');
   icon.style.display='inline';
@@ -126,7 +130,7 @@ function checkMCQ(el,isCorrect,questionText){
 }
 
 function updateMistakes(){
-  const container=document.getElementById('bio-ch1-mistakes');
+  const container=document.querySelector('.mistakes div');
   container.innerHTML='';
   if(mistakes.length===0){
     container.innerHTML='<p>No mistakes yet.</p>';
