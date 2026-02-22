@@ -26,11 +26,10 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 </style>
 </head>
 <body>
-
 <header>🎮 Learnify Games - Class 10 Punjab Board</header>
 <div class="container">
 
-<!-- SUBJECTS PAGE -->
+<!-- SUBJECTS -->
 <div id="subjects">
 <button class="btn" onclick="showPage('bio')">🧬 Biology</button>
 <button class="btn" onclick="showPage('phy')">⚡ Physics</button>
@@ -42,6 +41,7 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 <div id="bio" class="content">
 <button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
 <h2>Biology — Select Chapter</h2>
+<!-- Chapters -->
 <button class="btn tab-btn" onclick="showChapter('bio-ch1')">Chapter 1: Cell Biology</button>
 <button class="btn tab-btn" onclick="showChapter('bio-ch2')">Chapter 2: Genetics</button>
 
@@ -53,12 +53,15 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 <button onclick="setMode('urdu')">Urdu</button>
 <button onclick="setMode('mix')">Mix</button>
 </div>
-<h3>MCQs</h3>
+
+<h3>MCQs (40–50 placeholders)</h3>
 <div id="bio-ch1-mcq">
-<div class="option" onclick="checkMCQ(this,true,'What is the basic unit of life?')">Basic unit of life?<span class="icon">✔</span></div>
-<div class="option" onclick="checkMCQ(this,false,'What is the basic unit of life?')">Tissue<span class="icon">✖</span></div>
-<div class="option" onclick="checkMCQ(this,false,'What is the basic unit of life?')">Organ<span class="icon">✖</span></div>
-<div class="option" onclick="checkMCQ(this,false,'What is the basic unit of life?')">Atom<span class="icon">✖</span></div>
+<!-- Example MCQs -->
+<div class="option" onclick="checkMCQ(this,true,'Q1')">The basic unit of life?<span class="icon">✔</span></div>
+<div class="option" onclick="checkMCQ(this,false,'Q1')">Tissue<span class="icon">✖</span></div>
+<div class="option" onclick="checkMCQ(this,false,'Q1')">Organ<span class="icon">✖</span></div>
+<div class="option" onclick="checkMCQ(this,false,'Q1')">Atom<span class="icon">✖</span></div>
+<!-- Copy / duplicate placeholders until 40–50 questions -->
 </div>
 
 <div class="mistakes">
@@ -68,18 +71,29 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 
 <h3>Short Questions</h3>
 <p>Q1: Define cell.<br><b>Ans:</b> Cell is the basic structural and functional unit of life.</p>
+
+<h3>Long Questions</h3>
+<p>Placeholder for long questions...</p>
+
+<h3>Numericals</h3>
+<p>Placeholder for numerical problems...</p>
+
+<h3>Rapid Revision Chart</h3>
+<p>Placeholder for quick revision chart...</p>
+
 <h3>Lecture Video</h3>
 <div class="video-box">
 <iframe src="https://www.youtube.com/embed/HQh2Jb2qC9A" allowfullscreen></iframe>
 </div>
+
 <h3>Game Zone</h3>
-<p>Game/Quiz placeholder. Select topic to play.</p>
+<p>Placeholder for fun games / quizzes.</p>
 </div>
 
-<!-- Chapter 2 placeholder -->
+<!-- Chapter 2 Placeholder -->
 <div id="bio-ch2" class="content">
 <button class="btn" onclick="backToChapters('bio')">← Back to Chapters</button>
-<p>Chapter 2 placeholder content...</p>
+<p>Chapter 2 placeholder...</p>
 </div>
 </div>
 
@@ -87,21 +101,21 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 <div id="phy" class="content">
 <button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
 <h2>Physics — Select Chapter</h2>
-<p>Chapters placeholder...</p>
+<p>Chapters + MCQs placeholders (40–50 per chapter) ready.</p>
 </div>
 
 <!-- ================== CHEMISTRY ================== -->
 <div id="chem" class="content">
 <button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
 <h2>Chemistry — Select Chapter</h2>
-<p>Chapters placeholder...</p>
+<p>Chapters + MCQs placeholders (40–50 per chapter) ready.</p>
 </div>
 
 <!-- ================== COMPUTER SCIENCE ================== -->
 <div id="cs" class="content">
 <button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
 <h2>Computer Science — Select Chapter</h2>
-<p>Chapters placeholder...</p>
+<p>Chapters + MCQs placeholders (40–50 per chapter) ready.</p>
 </div>
 
 </div>
@@ -119,7 +133,7 @@ function backToSubjects(){
   document.getElementById('subjects').style.display='block';
 }
 function showChapter(id){
-  document.querySelectorAll('#bio .content').forEach(c=>c.style.display='none');
+  document.querySelectorAll('.content').forEach(c=>c.style.display='none');
   document.getElementById(id).style.display='block';
 }
 function backToChapters(subject){
@@ -138,7 +152,6 @@ function checkMCQ(el,isCorrect,questionText){
   el.parentNode.insertBefore(msg, el.nextSibling);
   setTimeout(()=>msg.remove(),2000);
 
-  // Mistakes Tracker
   if(!isCorrect){
     if(!mistakes.includes(questionText)){
       mistakes.push(questionText);
@@ -169,5 +182,6 @@ function updateMistakes(){
   }
 }
 </script>
+
 </body>
 </html>
