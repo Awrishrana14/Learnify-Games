@@ -1,191 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Learnify-Games — Class 10 Complete</title>
+<meta charset="UTF-8">
+<title>Learnify Games - Class 10 Punjab Board</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{font-family:Arial;margin:0;padding:0;background:#f0f4f8;}
-header{background:#1f75fe;color:white;text-align:center;padding:18px;}
-h1,p{margin:0;}
-.container{max-width:980px;margin:auto;padding:20px;}
-select,button{padding:10px;margin:6px;border-radius:6px;border:1px solid #1f75fe;cursor:pointer;}
-button{background:#1f75fe;color:white;border:none;}
-button:hover{background:#155ab6;}
-.tab{display:none;margin-top:20px;padding:15px;border:2px solid #1f75fe;border-radius:8px;background:#e1e9ff;}
-iframe{width:100%;height:250px;margin:12px 0;border:none;border-radius:6px;}
-.mcq-btn{display:block;width:100%;text-align:left;margin:6px 0;padding:10px;border-radius:6px;background:#1f75fe;color:white;border:none;cursor:pointer;}
-.mcq-btn:hover{background:#155ab6;}
-.card{padding:15px;margin:10px;border:2px solid #1f75fe;border-radius:10px;cursor:pointer;text-align:center;transition:0.3s;user-select:none;}
-.card.flipped{background:#1f75fe;color:white;}
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#e0f7fa,#e1bee7);
+}
+
+/* HEADER */
+header{
+  background:#6a1b9a;
+  color:white;
+  text-align:center;
+  padding:20px;
+  font-size:28px;
+  font-weight:bold;
+}
+
+/* VERTICAL BUTTONS */
+.container{
+  padding:20px;
+}
+
+.btn{
+  display:block;
+  width:100%;
+  max-width:500px;
+  margin:10px auto;
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  background:#ffffff;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn:hover{
+  background:#ffd54f;
+  transform:scale(1.03);
+}
+
+/* CONTENT BOX */
+.content{
+  display:none;
+  background:white;
+  margin:15px auto;
+  padding:20px;
+  border-radius:15px;
+  max-width:900px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* MCQ */
+.mcq{
+  background:#f3e5f5;
+  padding:15px;
+  margin:10px 0;
+  border-radius:10px;
+}
+
+.option{
+  display:block;
+  background:white;
+  margin:5px 0;
+  padding:8px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.correct{
+  background:#c8e6c9 !important;
+  color:#1b5e20;
+  font-weight:bold;
+}
+
+/* iframe video */
+.video-box{
+  position:relative;
+  padding-bottom:56.25%;
+  height:0;
+}
+
+.video-box iframe{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:12px;
+}
 </style>
 </head>
+
 <body>
-<header>
-<h1>Learnify-Games — Class 10 Complete</h1>
-<p>Select subject & tab to learn with fun!</p>
-</header>
+
+<header>🎮 Learnify Games — Class 10 Punjab Board</header>
 
 <div class="container">
-<label for="subjectSelect">Choose Subject:</label>
-<select id="subjectSelect">
-<option value="biology">Biology</option>
-<option value="chemistry">Chemistry</option>
-<option value="physics">Physics</option>
-</select>
 
-<div>
-<button onclick="showTab('mcqs')">MCQs</button>
-<button onclick="showTab('long')">Long Qs</button>
-<button onclick="showTab('short')">Short Qs</button>
-<button onclick="showTab('quick')">Quick Rev</button>
-<button onclick="showTab('game')">Game</button>
-<button onclick="showTab('lectures')">Lectures</button>
+<!-- SUBJECTS -->
+<button class="btn" onclick="toggle('bio')">🧬 Biology</button>
+<button class="btn" onclick="toggle('phy')">⚡ Physics</button>
+<button class="btn" onclick="toggle('chem')">🧪 Chemistry</button>
+<button class="btn" onclick="toggle('cs')">💻 Computer Science</button>
+
+<!-- ================= BIOLOGY ================= -->
+<div id="bio" class="content">
+
+<h2>Biology — English Medium</h2>
+
+<button class="btn" onclick="toggle('bio-mcqs')">MCQs</button>
+<div id="bio-mcqs" class="content">
+
+<div class="mcq">
+<p><b>Q1:</b> Basic unit of life is?</p>
+<span class="option" onclick="markCorrect(this,false)">Tissue</span>
+<span class="option" onclick="markCorrect(this,true)">Cell</span>
+<span class="option" onclick="markCorrect(this,false)">Organ</span>
+<span class="option" onclick="markCorrect(this,false)">Atom</span>
 </div>
 
-<div id="mcqs" class="tab"></div>
-<div id="long" class="tab"></div>
-<div id="short" class="tab"></div>
-<div id="quick" class="tab"></div>
-<div id="game" class="tab"></div>
-<div id="lectures" class="tab"></div>
+<div class="mcq">
+<p><b>Q2:</b> Photosynthesis occurs in?</p>
+<span class="option" onclick="markCorrect(this,true)">Chloroplast</span>
+<span class="option" onclick="markCorrect(this,false)">Mitochondria</span>
+<span class="option" onclick="markCorrect(this,false)">Nucleus</span>
+<span class="option" onclick="markCorrect(this,false)">Ribosome</span>
+</div>
+
+</div>
+
+<button class="btn" onclick="toggle('bio-short')">Short Questions</button>
+<div id="bio-short" class="content">
+<p><b>1.</b> What is biology?<br>
+<b>Ans:</b> Biology is the study of living organisms.</p>
+
+<p><b>2.</b> Define cell.<br>
+<b>Ans:</b> Cell is the basic structural and functional unit of life.</p>
+</div>
+
+<button class="btn" onclick="toggle('bio-rev')">Rapid Revision</button>
+<div id="bio-rev" class="content">
+<ul>
+<li>Cell → basic unit</li>
+<li>Chloroplast → photosynthesis</li>
+<li>Mitochondria → powerhouse</li>
+</ul>
+</div>
+
+<button class="btn" onclick="toggle('bio-lecture')">Top Lecture</button>
+<div id="bio-lecture" class="content">
+<div class="video-box">
+<iframe src="https://www.youtube.com/embed/HQh2Jb2qC9A" allowfullscreen></iframe>
+</div>
+</div>
+
+<button class="btn" onclick="toggle('bio-game')">🎮 Game Zone</button>
+<div id="bio-game" class="content">
+<p>Coming: Topic based quiz game system.</p>
+</div>
+
+</div>
+
 </div>
 
 <script>
-/* ===== DATA SECTION ===== */
-const content = {
-biology:{
-mcqs:[
-{q:"Water transport in plants is called?",o:["Transpiration","Photosynthesis","Osmosis","Diffusion"],a:0},
-{q:"pH of acidic solution?",o:["<7","=7",">7","None"],a:0}
-],
-long:[
-"Explain Photosynthesis with diagram.",
-"Describe human heart structure.",
-"Discuss excretion in human body."
-],
-short:[
-"Define transpiration.",
-"What is Xylem & Phloem?",
-"State Osmosis."
-],
-quick:[
-"Water transport → Transpiration",
-"Photosynthesis → Sunlight + Chlorophyll → Glucose"
-],
-game:[
-{front:"What carries water up the plant?",back:"Xylem"},
-{front:"Main food making site in plant?",back:"Leaves with chlorophyll"}
-],
-lectures:[
-"https://www.youtube.com/embed/kWHS5H4dVbI",
-"https://www.youtube.com/embed/8Cz3uGhLbcE"
-]
-},
-
-chemistry:{
-mcqs:[
-{q:"pH of neutral solution?",o:["7","0","14","1"],a:0},
-{q:"HCl is a?",o:["Acid","Base","Salt","Metal"],a:0}
-],
-long:[
-"Explain acid-base reaction with example.",
-"Describe preparation of Sodium Carbonate."
-],
-short:[
-"Define Acid.","Define Base.","What is Salt?"
-],
-quick:[
-"Acid → pH <7","Base → pH >7","Salt → pH=7"
-],
-game:[
-{front:"HCl is what?",back:"Acid"},
-{front:"NaOH is what?",back:"Base"}
-],
-lectures:[
-"https://www.youtube.com/embed/4yq71ue3nBk",
-"https://www.youtube.com/embed/OTHER_CHEM"
-]
-},
-
-physics:{
-mcqs:[
-{q:"Unit of Force?",o:["Newton","Joule","Watt","Pascal"],a:0},
-{q:"Acceleration formula?",o:["a=F/m","a=m/F","F=ma","v=u+at"],a:0}
-],
-long:[
-"Explain Newton's Laws.","Describe motion types."
-],
-short:[
-"Define Force.","Define Acceleration."
-],
-quick:[
-"Force → Newton","Accel → F=ma"
-],
-game:[
-{front:"Unit of Force?",back:"Newton"},
-{front:"What is acceleration?",back:"F=ma"}
-],
-lectures:[
-"https://www.youtube.com/embed/YJVJXZfPaAU",
-"https://www.youtube.com/embed/OTHER_PHY"
-]
-}
-};
-
-/* ===== FUNCTIONS ===== */
-let sub="biology", idx=0, score=0, mcqInterval;
-
-document.getElementById('subjectSelect').addEventListener('change',function(){
-sub=this.value; clearTabs(); idx=0; score=0; clearInterval(mcqInterval);
-});
-
-function showTab(t){
-clearTabs();
-const d=document.getElementById(t);
-d.style.display="block"; d.innerHTML="";
-if(t==="mcqs"){ showMCQ(d); }
-if(t==="long"){ content[sub].long.forEach(x=>{d.innerHTML+="<p>"+x+"</p>";}); }
-if(t==="short"){ content[sub].short.forEach(x=>{d.innerHTML+="<p>"+x+"</p>";}); }
-if(t==="quick"){ content[sub].quick.forEach(x=>{d.innerHTML+="<p>"+x+"</p>";}); }
-if(t==="game") content[sub].game.forEach(c=>{
- let card=document.createElement('div');
- card.className="card";
- card.innerText=c.front;
- card.onclick=()=>{card.classList.add("flipped");card.innerText=c.back;}
- d.appendChild(card);
-});
-if(t==="lectures") content[sub].lectures.forEach(link=>{
- d.innerHTML+='<iframe src="'+link+'"></iframe>';
-});
+function toggle(id){
+  var x=document.getElementById(id);
+  if(x.style.display==="block"){
+    x.style.display="none";
+  }else{
+    x.style.display="block";
+  }
 }
 
-function clearTabs(){
-document.querySelectorAll(".tab").forEach(x=>{x.style.display="none";x.innerHTML="";});
-clearInterval(mcqInterval);
-}
-
-function showMCQ(d){
-if(idx>=content[sub].mcqs.length){ alert("Done! Score: "+score); idx=0; score=0;}
-let q=content[sub].mcqs[idx];
-d.innerHTML="<p>"+(idx+1)+". "+q.q+"</p>";
-q.o.forEach((opt,i)=>{
- let b=document.createElement('button');
- b.className="mcq-btn"; b.innerText=opt;
- b.onclick=()=>{
-   clearInterval(mcqInterval);
-   if(i===q.a){score++;alert("Correct 🎉");} else {alert("Wrong! ❌");}
-   idx++; showMCQ(d);
- };
- d.appendChild(b);
-});
-d.innerHTML+="<p>Score: "+score+"</p>";
-let tEl=document.createElement('p'); d.appendChild(tEl);
-let time=20; tEl.innerText="Time: "+time+"s";
-mcqInterval=setInterval(()=>{time--; tEl.innerText="Time: "+time+"s";
- if(time<=0){ clearInterval(mcqInterval); idx++; showMCQ(d);}
-},1000);
+function markCorrect(el,isCorrect){
+  if(isCorrect){
+    el.classList.add("correct");
+  }
 }
 </script>
+
 </body>
 </html>
