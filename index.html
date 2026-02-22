@@ -4,104 +4,25 @@
 <meta charset="UTF-8">
 <title>Learnify Games - Class 10 Punjab Board</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-body{
-  margin:0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg,#e0f7fa,#e1bee7);
-}
-
-/* HEADER */
-header{
-  background:#6a1b9a;
-  color:white;
-  text-align:center;
-  padding:20px;
-  font-size:28px;
-  font-weight:bold;
-}
-
-/* VERTICAL BUTTONS */
-.container{
-  padding:20px;
-}
-
-.btn{
-  display:block;
-  width:100%;
-  max-width:500px;
-  margin:10px auto;
-  padding:15px;
-  border:none;
-  border-radius:12px;
-  background:#ffffff;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.btn:hover{
-  background:#ffd54f;
-  transform:scale(1.03);
-}
-
-/* CONTENT BOX */
-.content{
-  display:none;
-  background:white;
-  margin:15px auto;
-  padding:20px;
-  border-radius:15px;
-  max-width:900px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.15);
-}
-
-/* MCQ */
-.mcq{
-  background:#f3e5f5;
-  padding:15px;
-  margin:10px 0;
-  border-radius:10px;
-}
-
-.option{
-  display:block;
-  background:white;
-  margin:5px 0;
-  padding:8px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-.correct{
-  background:#c8e6c9 !important;
-  color:#1b5e20;
-  font-weight:bold;
-}
-
-/* iframe video */
-.video-box{
-  position:relative;
-  padding-bottom:56.25%;
-  height:0;
-}
-
-.video-box iframe{
-  position:absolute;
-  width:100%;
-  height:100%;
-  border-radius:12px;
-}
+body { margin:0; font-family:'Segoe UI',sans-serif; background:linear-gradient(135deg,#e0f7fa,#e1bee7);}
+header { background:#6a1b9a; color:white; text-align:center; padding:20px; font-size:28px; font-weight:bold;}
+.container { padding:20px; max-width:900px; margin:auto;}
+.btn { display:block; width:100%; margin:10px 0; padding:15px; border:none; border-radius:12px; background:#ffffff; font-size:18px; font-weight:bold; cursor:pointer; transition:0.3s; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+.btn:hover { background:#ffd54f; transform:scale(1.03);}
+.content { display:none; background:white; margin:10px 0; padding:20px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.15);}
+.option { display:block; background:#f3e5f5; margin:5px 0; padding:8px; border-radius:6px; cursor:pointer; }
+.correct { background:#c8e6c9 !important; color:#1b5e20; font-weight:bold;}
+.video-box { position:relative; padding-bottom:56.25%; height:0; margin:10px 0;}
+.video-box iframe { position:absolute; width:100%; height:100%; border-radius:12px;}
+.chapter-btn { background:#c5cae9; margin:5px 0;}
+.lang-btn { display:inline-block; margin:5px; padding:8px 12px; border-radius:8px; background:#fff; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.lang-btn.active { background:#81c784; color:white;}
 </style>
 </head>
-
 <body>
 
 <header>🎮 Learnify Games — Class 10 Punjab Board</header>
-
 <div class="container">
 
 <!-- SUBJECTS -->
@@ -112,78 +33,120 @@ header{
 
 <!-- ================= BIOLOGY ================= -->
 <div id="bio" class="content">
+<h2>Biology — Select Chapter</h2>
+<button class="btn chapter-btn" onclick="toggle('bio-ch1')">Chapter 1: Cell Biology</button>
+<button class="btn chapter-btn" onclick="toggle('bio-ch2')">Chapter 2: Genetics</button>
 
-<h2>Biology — English Medium</h2>
+<!-- Chapter 1 -->
+<div id="bio-ch1" class="content">
 
-<button class="btn" onclick="toggle('bio-mcqs')">MCQs</button>
-<div id="bio-mcqs" class="content">
-
-<div class="mcq">
-<p><b>Q1:</b> Basic unit of life is?</p>
-<span class="option" onclick="markCorrect(this,false)">Tissue</span>
-<span class="option" onclick="markCorrect(this,true)">Cell</span>
-<span class="option" onclick="markCorrect(this,false)">Organ</span>
-<span class="option" onclick="markCorrect(this,false)">Atom</span>
+<!-- LANGUAGE SELECTION -->
+<div>
+<span class="lang-btn active" onclick="changeLang('bio-ch1','eng')">English</span>
+<span class="lang-btn" onclick="changeLang('bio-ch1','urdu')">Urdu</span>
+<span class="lang-btn" onclick="changeLang('bio-ch1','mix')">Mix</span>
 </div>
 
-<div class="mcq">
-<p><b>Q2:</b> Photosynthesis occurs in?</p>
-<span class="option" onclick="markCorrect(this,true)">Chloroplast</span>
-<span class="option" onclick="markCorrect(this,false)">Mitochondria</span>
-<span class="option" onclick="markCorrect(this,false)">Nucleus</span>
-<span class="option" onclick="markCorrect(this,false)">Ribosome</span>
+<button class="btn" onclick="toggle('bio-ch1-mcqs')">MCQs</button>
+<div id="bio-ch1-mcqs" class="content">
+<div class="option" onclick="markCorrect(this,true)">Q1: Basic unit of life? → Cell</div>
+<div class="option" onclick="markCorrect(this,false)">Tissue</div>
+<div class="option" onclick="markCorrect(this,false)">Organ</div>
+<div class="option" onclick="markCorrect(this,false)">Atom</div>
+<!-- Add full 40-50 MCQs here -->
 </div>
 
+<button class="btn" onclick="toggle('bio-ch1-short')">Short Questions</button>
+<div id="bio-ch1-short" class="content">
+<p>Q1: Define cell.<br><b>Ans:</b> Cell is the basic structural and functional unit of life.</p>
+<!-- Add 40-50 short questions -->
 </div>
 
-<button class="btn" onclick="toggle('bio-short')">Short Questions</button>
-<div id="bio-short" class="content">
-<p><b>1.</b> What is biology?<br>
-<b>Ans:</b> Biology is the study of living organisms.</p>
-
-<p><b>2.</b> Define cell.<br>
-<b>Ans:</b> Cell is the basic structural and functional unit of life.</p>
+<button class="btn" onclick="toggle('bio-ch1-long')">Long Questions</button>
+<div id="bio-ch1-long" class="content">
+<p>Explain cell structure in detail...</p>
+<!-- Add all long questions -->
 </div>
 
-<button class="btn" onclick="toggle('bio-rev')">Rapid Revision</button>
-<div id="bio-rev" class="content">
+<button class="btn" onclick="toggle('bio-ch1-numerical')">Numericals</button>
+<div id="bio-ch1-numerical" class="content">
+<p>Physics/Chemistry numericals placeholder</p>
+</div>
+
+<button class="btn" onclick="toggle('bio-ch1-rev')">Rapid Revision</button>
+<div id="bio-ch1-rev" class="content">
 <ul>
 <li>Cell → basic unit</li>
 <li>Chloroplast → photosynthesis</li>
-<li>Mitochondria → powerhouse</li>
+<!-- Add full rapid revision chart -->
 </ul>
 </div>
 
-<button class="btn" onclick="toggle('bio-lecture')">Top Lecture</button>
-<div id="bio-lecture" class="content">
+<button class="btn" onclick="toggle('bio-ch1-lecture')">Top Lecture</button>
+<div id="bio-ch1-lecture" class="content">
 <div class="video-box">
 <iframe src="https://www.youtube.com/embed/HQh2Jb2qC9A" allowfullscreen></iframe>
 </div>
 </div>
 
-<button class="btn" onclick="toggle('bio-game')">🎮 Game Zone</button>
-<div id="bio-game" class="content">
-<p>Coming: Topic based quiz game system.</p>
+<button class="btn" onclick="toggle('bio-ch1-game')">🎮 Game Zone</button>
+<div id="bio-ch1-game" class="content">
+<p>Quiz/Game placeholder. Replace with topic game content.</p>
 </div>
 
+</div> <!-- END Chapter 1 -->
+
+<!-- Chapter 2 -->
+<div id="bio-ch2" class="content">
+<p>Chapter 2 placeholder — add MCQs, Shorts, Longs, Revision, Lectures, Games</p>
 </div>
 
+</div> <!-- END Biology -->
+
+<!-- ================= Physics ================= -->
+<div id="phy" class="content">
+<h2>Physics — Select Chapter</h2>
+<button class="btn chapter-btn" onclick="toggle('phy-ch1')">Chapter 1: Motion</button>
+<div id="phy-ch1" class="content">
+<p>MCQs, Shorts, Longs, Numericals, Revision, Lecture, Game placeholder</p>
 </div>
+</div>
+
+<!-- ================= Chemistry ================= -->
+<div id="chem" class="content">
+<h2>Chemistry — Select Chapter</h2>
+<button class="btn chapter-btn" onclick="toggle('chem-ch1')">Chapter 1: Atomic Structure</button>
+<div id="chem-ch1" class="content">
+<p>MCQs, Shorts, Longs, Numericals, Revision, Lecture, Game placeholder</p>
+</div>
+</div>
+
+<!-- ================= Computer Science ================= -->
+<div id="cs" class="content">
+<h2>Computer Science — Select Chapter</h2>
+<button class="btn chapter-btn" onclick="toggle('cs-ch1')">Chapter 1: Basics of Programming</button>
+<div id="cs-ch1" class="content">
+<p>MCQs, Shorts, Longs, Revision, Lecture, Game placeholder</p>
+</div>
+</div>
+
+</div> <!-- END container -->
 
 <script>
 function toggle(id){
   var x=document.getElementById(id);
-  if(x.style.display==="block"){
-    x.style.display="none";
-  }else{
-    x.style.display="block";
-  }
+  if(x.style.display==="block"){x.style.display="none";}
+  else{x.style.display="block";}
 }
 
 function markCorrect(el,isCorrect){
-  if(isCorrect){
-    el.classList.add("correct");
-  }
+  if(isCorrect){el.classList.add("correct");}
+}
+
+// LANGUAGE SWITCHER PLACEHOLDER
+function changeLang(chapterId,lang){
+  console.log("Change language for",chapterId,"to",lang);
+  // Implement content switch between English/Urdu/Mix per chapter
 }
 </script>
 
