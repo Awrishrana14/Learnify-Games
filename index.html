@@ -23,6 +23,9 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 .mistakes h4 { margin:0 0 5px 0; }
 .mistake-item { padding:5px; border-bottom:1px solid #e57373; cursor:pointer; }
 .mistake-item:hover { background:#ef9a9a; }
+.feedback { margin:5px 0;font-weight:bold; }
+.correct { color:green; }
+.wrong { color:red; }
 </style>
 </head>
 <body>
@@ -41,9 +44,9 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 <div id="bio" class="content">
 <button class="btn" onclick="backToSubjects()">← Back to Subjects</button>
 <h2>Biology — Select Chapter</h2>
-<!-- Chapters -->
 <button class="btn tab-btn" onclick="showChapter('bio-ch1')">Chapter 1: Cell Biology</button>
 <button class="btn tab-btn" onclick="showChapter('bio-ch2')">Chapter 2: Genetics</button>
+<!-- Add more chapters as needed -->
 
 <!-- Chapter 1 -->
 <div id="bio-ch1" class="content">
@@ -56,13 +59,14 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 
 <h3>MCQs (40–50 placeholders)</h3>
 <div id="bio-ch1-mcq">
-<!-- Example MCQs -->
 <div class="option" onclick="checkMCQ(this,true,'Q1')">The basic unit of life?<span class="icon">✔</span></div>
 <div class="option" onclick="checkMCQ(this,false,'Q1')">Tissue<span class="icon">✖</span></div>
 <div class="option" onclick="checkMCQ(this,false,'Q1')">Organ<span class="icon">✖</span></div>
 <div class="option" onclick="checkMCQ(this,false,'Q1')">Atom<span class="icon">✖</span></div>
-<!-- Copy / duplicate placeholders until 40–50 questions -->
+<!-- Duplicate until 40–50 questions -->
 </div>
+
+<div class="feedback" id="current-feedback">Select an option to see feedback here.</div>
 
 <div class="mistakes">
 <h4>Current Mistakes</h4>
@@ -90,7 +94,7 @@ header { background:#6a1b9a;color:white;text-align:center;padding:20px;font-size
 <p>Placeholder for fun games / quizzes.</p>
 </div>
 
-<!-- Chapter 2 Placeholder -->
+<!-- Chapter 2 -->
 <div id="bio-ch2" class="content">
 <button class="btn" onclick="backToChapters('bio')">← Back to Chapters</button>
 <p>Chapter 2 placeholder...</p>
@@ -139,7 +143,11 @@ function showChapter(id){
 function backToChapters(subject){
   document.querySelectorAll('#'+subject+' .content').forEach(c=>c.style.display='none');
 }
-function setMode(mode){ currentMode=mode; alert("Mode switched to: "+mode); }
+
+function setMode(mode){ 
+  currentMode=mode; 
+  alert("Mode switched to: "+mode); 
+}
 
 function checkMCQ(el,isCorrect,questionText){
   const icon=el.querySelector('.icon');
@@ -147,10 +155,23 @@ function checkMCQ(el,isCorrect,questionText){
   icon.textContent = isCorrect ? '✔' : '✖';
   el.style.pointerEvents='none';
   
-  const msg=document.createElement('p');
-  msg.textContent=isCorrect?'Correct':'Wrong';
-  el.parentNode.insertBefore(msg, el.nextSibling);
-  setTimeout(()=>msg.remove(),2000);
+  const feedbackBox=document.getElementById('current-feedback');
+  feedbackBox.textContent = isCorrect ? 'Correct ✅' : 'Wrong ❌';
+  feedbackBox.className = isCorrect ? 'feedback correct' : 'feedback wrong';
+
+  setTimeout(()=>{ 
+    if(!isCorrect) {
+      const options=el.parentNode.querySelectorAll('.option');
+      options.forEach(o=>{
+        if(o.textContent.includes(questionText)){
+          o.querySelector('.icon').textContent='✔';
+          o.querySelector('.icon').style.display='inline';
+        }
+      });
+    }
+    feedbackBox.textContent='Select an option to see feedback here.';
+    feedbackBox.className='feedback';
+  },2000);
 
   if(!isCorrect){
     if(!mistakes.includes(questionText)){
