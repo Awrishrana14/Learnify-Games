@@ -1,369 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learnify Games - Class 10 Punjab Board</title>
-
-<style>
-body{
-  font-family:'Segoe UI',sans-serif;
-  margin:0;
-  background:#e8f5e9;
-}
-header{
-  background:#6a1b9a;
-  color:white;
-  text-align:center;
-  padding:18px;
-  font-size:24px;
-  font-weight:bold;
-}
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:15px;
-}
-.btn{
-  display:block;
-  width:100%;
-  margin:10px 0;
-  padding:14px;
-  border:none;
-  border-radius:12px;
-  background:#ffffff;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-.content{
-  display:none;
-  background:white;
-  margin:10px 0;
-  padding:18px;
-  border-radius:15px;
-}
-.option{
-  display:block;
-  background:#f3e5f5;
-  margin:6px 0;
-  padding:10px;
-  border-radius:8px;
-  cursor:pointer;
-  position:relative;
-  font-weight:600;
-}
-.option.correct{ background:#c8e6c9; }
-.option.wrong{ background:#ffcdd2; }
-.icon{
-  position:absolute;
-  right:10px;
-  top:50%;
-  transform:translateY(-50%);
-  display:none;
-}
-.video-box{
-  position:relative;
-  padding-bottom:56.25%;
-  height:0;
-  margin:10px 0;
-}
-.video-box iframe{
-  position:absolute;
-  width:100%;
-  height:100%;
-  border-radius:12px;
-}
-</style>
-</head>
-
-<body>
-
-<header>🎮 Learnify Games - Class 10 Punjab Board</header>
-
-<div class="container">
-
-<!-- SUBJECTS -->
-<div id="subjects">
-<button class="btn" onclick="showPage('bio')">🧬 Biology</button>
-</div>
-
-<!-- ================= BIOLOGY ================= -->
-<div id="bio" class="content">
-
-<button class="btn" onclick="backToSubjects()">← Back</button>
-
-<button class="btn" onclick="startRapidFire()">⚡ Rapid Fire</button>
-<button class="btn" onclick="startWeakZone()">🧠 Weak Zone Practice</button>
-
-<h3>MCQs</h3>
-
-<div id="mcqBox" data-question="Basic unit of life">
-
-<div class="option" onclick="selectMCQ(this,true)">
-Cell
-<span class="icon">✔</span>
-</div>
-
-<div class="option" onclick="selectMCQ(this,false)">
-Tissue
-<span class="icon">✖</span>
-</div>
-
-<div class="option" onclick="selectMCQ(this,false)">
-Organ
-<span class="icon">✖</span>
-</div>
-
-<div class="option" onclick="selectMCQ(this,false)">
-Atom
-<span class="icon">✖</span>
-</div>
-
-</div>
-
-<h3>Lecture</h3>
-<div class="video-box">
-<iframe src="https://www.youtube.com/embed/HQh2Jb2qC9A" allowfullscreen></iframe>
-</div>
-
-</div>
-
-<!-- ================= RAPID FIRE ================= -->
-<div id="rapidFireBox" class="content">
-<h3>⚡ Rapid Fire Mode</h3>
-<p id="rfTimer">Time: 0</p>
-<h4 id="rfQuestion"></h4>
-<div id="rfOptions"></div>
-<p id="rfResult"></p>
-<button class="btn" onclick="exitRapidFire()">← Exit</button>
-</div>
-
-</div>
-
-<script>
-
-/* ---------- navigation ---------- */
-function showPage(id){
-  document.getElementById('subjects').style.display='none';
-  document.getElementById(id).style.display='block';
-}
-function backToSubjects(){
-  document.querySelectorAll('.content').forEach(c=>c.style.display='none');
-  document.getElementById('subjects').style.display='block';
-}
-
-/* ---------- MCQ system ---------- */
-
-let mistakesStore=[];
-let weakQuestions=[];
-
-function selectMCQ(el,isCorrect){
-
-  const parent=el.parentElement;
-  const options=parent.querySelectorAll('.option');
-
-  options.forEach(opt=>{
-    opt.style.pointerEvents='none';
-    opt.querySelector('.icon').style.display='inline';
-  });
-
-  const qText=parent.getAttribute("data-question");
-
-  if(isCorrect){
-    el.classList.add('correct');
-  }else{
-    el.classList.add('wrong');
-    if(!mistakesStore.includes(qText)){
-      mistakesStore.push(qText);
-    }
-
-    options.forEach(opt=>{
-      if(opt.onclick.toString().includes('true')){
-        opt.classList.add('correct');
-      }
-    });
-  }
-}
-
-/* ---------- rapid fire data ---------- */
-
-const rapidFireQuestions=[
-{
-q:"Basic unit of life is?",
-options:["Cell","Tissue","Organ","Atom"],
-correct:0
-},
-{
-q:"Powerhouse of cell is?",
-options:["Nucleus","Mitochondria","Ribosome","Golgi body"],
-correct:1
-},
-{
-q:"DNA is present in?",
-options:["Nucleus","Membrane","Cell wall","Cytoplasm"],
-correct:0
-}
+const bio_gaseous_mcqs = [
+{q:"Which organ is the main site of gaseous exchange in humans?",options:["Lungs","Heart","Stomach","Liver"],correct:0},
+{q:"What is the functional unit of the lungs?",options:["Alveoli","Bronchi","Trachea","Diaphragm"],correct:0},
+{q:"Which muscle aids in breathing by changing thoracic volume?",options:["Diaphragm","Biceps","Intercostal muscles","Abdominal muscles"],correct:0},
+{q:"During inhalation, the diaphragm:",options:["Contracts and flattens","Relaxes and curves","Moves up","Does not move"],correct:0},
+{q:"Which gas is expelled during exhalation?",options:["Carbon dioxide","Oxygen","Nitrogen","Hydrogen"],correct:0},
+{q:"Trachea is lined with:",options:["Ciliated epithelium","Squamous epithelium","Cartilage only","Muscle fibers"],correct:0},
+{q:"Bronchi divide into smaller tubes called?",options:["Bronchioles","Alveoli","Tracheoles","Capillaries"],correct:0},
+{q:"Exchange of gases occurs by which process?",options:["Diffusion","Osmosis","Active transport","Filtration"],correct:0},
+{q:"Oxygen is transported in blood mainly by:",options:["Haemoglobin","Plasma","WBC","Platelets"],correct:0},
+{q:"Carbon dioxide is carried in blood as:",options:["Bicarbonate ions","Dissolved gas only","Haemoglobin","Plasma protein"],correct:0},
+{q:"Asthma affects:",options:["Bronchioles","Alveoli","Trachea","Diaphragm"],correct:0},
+{q:"The flap that prevents food entering the lungs is:",options:["Epiglottis","Diaphragm","Larynx","Trachea"],correct:0},
+{q:"External respiration occurs in:",options:["Alveoli","Tissues","Heart","Liver"],correct:0},
+{q:"Internal respiration occurs in:",options:["Tissues","Alveoli","Lungs","Bronchi"],correct:0},
+{q:"The respiratory pigment in humans is:",options:["Haemoglobin","Chlorophyll","Myoglobin","Carotene"],correct:0},
+{q:"Volume of air breathed in or out in normal breathing:",options:["Tidal volume","Vital capacity","Residual volume","Total lung capacity"],correct:0},
+{q:"Total lung capacity is:",options:["Sum of vital capacity and residual volume","Tidal volume only","Residual volume only","None"],correct:0},
+{q:"During exhalation, the diaphragm:",options:["Relaxes and moves up","Contracts","Flattens","Remains still"],correct:0},
+{q:"Which part of the respiratory system warms and filters air?",options:["Nasal cavity","Alveoli","Bronchioles","Diaphragm"],correct:0},
+{q:"Gaseous exchange in plants occurs mainly through:",options:["Stomata","Lenticels","Root hairs","Xylem"],correct:0},
+{q:"Guard cells control:",options:["Opening of stomata","Water absorption","Photosynthesis rate","Transpiration only"],correct:0},
+{q:"Which gas diffuses faster?",options:["CO₂","O₂","N₂","H₂O"],correct:0},
+{q:"Smoking affects:",options:["Cilia in trachea","Haemoglobin","Diaphragm","Alveoli only"],correct:0},
+{q:"Surface area of lungs is increased by:",options:["Alveoli","Bronchi","Trachea","Ribs"],correct:0},
+{q:"Lacteals are associated with:",options:["Transport of fats","Gas exchange","Blood oxygenation","Nerve impulse"],correct:0},
+{q:"Which condition reduces oxygen transport?",options:["Anaemia","Asthma","Emphysema","Both 2 & 3"],correct:3},
+{q:"Partial pressure gradient drives:",options:["Diffusion of gases","Osmosis","Active transport","Facilitated diffusion"],correct:0},
+{q:"Which respiratory disease is caused by bacteria?",options:["Tuberculosis","Asthma","Emphysema","Bronchitis"],correct:0},
+{q:"In aquatic animals, gaseous exchange occurs mainly through:",options:["Gills","Lungs","Skin","Both gills and skin"],correct:3},
+{q:"Which gas is required by plants for respiration?",options:["Oxygen","Carbon dioxide","Nitrogen","Hydrogen"],correct:0},
+{q:"CO₂ is converted to bicarbonate in:",options:["Blood plasma","Lungs","Alveoli","Tissues"],correct:0},
+{q:"Vital capacity includes:",options:["Inspiratory + expiratory reserve + tidal volume","Tidal volume only","Residual volume only","None"],correct:0},
+{q:"Residual volume remains:",options:["After forced exhalation","During normal inhalation","During tidal breathing","Never"],correct:0},
+{q:"Larynx is also called:",options:["Voice box","Wind pipe","Throat","Nostril"],correct:0},
+{q:"Pleura helps in:",options:["Lubrication and reducing friction","Gas transport","Oxygen absorption","Diaphragm movement"],correct:0},
+{q:"Asthma treatment includes:",options:["Inhalers","Surgery","Antibiotics","Rest only"],correct:0},
+{q:"CO₂ transport in plants occurs mainly as:",options:["Diffusion through stomata","Bicarbonate","Through phloem","Through xylem"],correct:0},
+{q:"Which organelle aids gaseous exchange in single-celled organisms?",options:["Cell membrane","Nucleus","Mitochondria","Ribosome"],correct:0},
+{q:"Which gas is used for photosynthesis?",options:["CO₂","O₂","N₂","H₂"],correct:0},
+{q:"Anaerobic respiration produces:",options:["Less energy than aerobic","More energy","Oxygen","CO₂"],correct:0},
+{q:"Breathing rate is controlled by:",options:["Medulla oblongata","Cerebrum","Cerebellum","Spinal cord"],correct:0}
 ];
-
-let rfIndex=0;
-let rfScore=0;
-let rfTime=0;
-let rfTimerInterval;
-
-/* ---------- rapid fire ---------- */
-
-function startRapidFire(){
-  document.getElementById("bio").style.display="none";
-  document.getElementById("rapidFireBox").style.display="block";
-
-  rfIndex=0;
-  rfScore=0;
-  rfTime=0;
-
-  startTimer();
-  loadRFQuestion();
-}
-
-function exitRapidFire(){
-  clearInterval(rfTimerInterval);
-  document.getElementById("rapidFireBox").style.display="none";
-  document.getElementById("bio").style.display="block";
-}
-
-function startTimer(){
-  clearInterval(rfTimerInterval);
-  rfTimerInterval=setInterval(()=>{
-    rfTime++;
-    document.getElementById("rfTimer").textContent="Time: "+rfTime+"s";
-  },1000);
-}
-
-function loadRFQuestion(){
-
-  const qBox=document.getElementById("rfQuestion");
-  const optBox=document.getElementById("rfOptions");
-  const result=document.getElementById("rfResult");
-
-  result.textContent="";
-
-  if(rfIndex>=rapidFireQuestions.length){
-    clearInterval(rfTimerInterval);
-    qBox.textContent="🎉 Completed!";
-    optBox.innerHTML="";
-    result.textContent="Score: "+rfScore+" / "+rapidFireQuestions.length;
-    return;
-  }
-
-  const q=rapidFireQuestions[rfIndex];
-  qBox.textContent=q.q;
-  optBox.innerHTML="";
-
-  q.options.forEach((opt,i)=>{
-    const btn=document.createElement("div");
-    btn.className="option";
-    btn.textContent=opt;
-    btn.onclick=()=>checkRFAnswer(i);
-    optBox.appendChild(btn);
-  });
-}
-
-function checkRFAnswer(selected){
-
-  const q=rapidFireQuestions[rfIndex];
-  const result=document.getElementById("rfResult");
-
-  if(selected===q.correct){
-    rfScore++;
-    result.textContent="✅ Correct";
-    result.style.color="green";
-  }else{
-    result.textContent="❌ Wrong";
-    result.style.color="red";
-  }
-
-  rfIndex++;
-  setTimeout(loadRFQuestion,800);
-}
-
-/* ---------- weak zone ---------- */
-
-function startWeakZone(){
-
-  if(mistakesStore.length===0){
-    alert("No mistakes yet.");
-    return;
-  }
-
-  weakQuestions=rapidFireQuestions.filter(q =>
-    mistakesStore.some(m=>q.q.includes(m))
-  );
-
-  if(weakQuestions.length===0){
-    alert("No weak questions matched.");
-    return;
-  }
-
-  document.getElementById("bio").style.display="none";
-  document.getElementById("rapidFireBox").style.display="block";
-
-  rfIndex=0;
-  rfScore=0;
-  rfTime=0;
-
-  startTimer();
-  loadWeakQuestion();
-}
-
-function loadWeakQuestion(){
-
-  const qBox=document.getElementById("rfQuestion");
-  const optBox=document.getElementById("rfOptions");
-  const result=document.getElementById("rfResult");
-
-  result.textContent="";
-
-  if(rfIndex>=weakQuestions.length){
-    clearInterval(rfTimerInterval);
-    qBox.textContent="🧠 Weak Zone Complete!";
-    optBox.innerHTML="";
-    result.textContent="Score: "+rfScore+" / "+weakQuestions.length;
-    return;
-  }
-
-  const q=weakQuestions[rfIndex];
-  qBox.textContent=q.q;
-  optBox.innerHTML="";
-
-  q.options.forEach((opt,i)=>{
-    const btn=document.createElement("div");
-    btn.className="option";
-    btn.textContent=opt;
-    btn.onclick=()=>checkWeakAnswer(i);
-    optBox.appendChild(btn);
-  });
-}
-
-function checkWeakAnswer(selected){
-
-  const q=weakQuestions[rfIndex];
-  const result=document.getElementById("rfResult");
-
-  if(selected===q.correct){
-    rfScore++;
-    result.textContent="✅ Correct";
-    result.style.color="green";
-  }else{
-    result.textContent="❌ Wrong";
-    result.style.color="red";
-  }
-
-  rfIndex++;
-  setTimeout(loadWeakQuestion,800);
-}
-
-</script>
-
-</body>
-</html>
