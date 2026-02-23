@@ -1,43 +1,77 @@
-const bio_gaseous_mcqs = [
-{q:"Which organ is the main site of gaseous exchange in humans?",options:["Lungs","Heart","Stomach","Liver"],correct:0},
-{q:"What is the functional unit of the lungs?",options:["Alveoli","Bronchi","Trachea","Diaphragm"],correct:0},
-{q:"Which muscle aids in breathing by changing thoracic volume?",options:["Diaphragm","Biceps","Intercostal muscles","Abdominal muscles"],correct:0},
-{q:"During inhalation, the diaphragm:",options:["Contracts and flattens","Relaxes and curves","Moves up","Does not move"],correct:0},
-{q:"Which gas is expelled during exhalation?",options:["Carbon dioxide","Oxygen","Nitrogen","Hydrogen"],correct:0},
-{q:"Trachea is lined with:",options:["Ciliated epithelium","Squamous epithelium","Cartilage only","Muscle fibers"],correct:0},
-{q:"Bronchi divide into smaller tubes called?",options:["Bronchioles","Alveoli","Tracheoles","Capillaries"],correct:0},
-{q:"Exchange of gases occurs by which process?",options:["Diffusion","Osmosis","Active transport","Filtration"],correct:0},
-{q:"Oxygen is transported in blood mainly by:",options:["Haemoglobin","Plasma","WBC","Platelets"],correct:0},
-{q:"Carbon dioxide is carried in blood as:",options:["Bicarbonate ions","Dissolved gas only","Haemoglobin","Plasma protein"],correct:0},
-{q:"Asthma affects:",options:["Bronchioles","Alveoli","Trachea","Diaphragm"],correct:0},
-{q:"The flap that prevents food entering the lungs is:",options:["Epiglottis","Diaphragm","Larynx","Trachea"],correct:0},
-{q:"External respiration occurs in:",options:["Alveoli","Tissues","Heart","Liver"],correct:0},
-{q:"Internal respiration occurs in:",options:["Tissues","Alveoli","Lungs","Bronchi"],correct:0},
-{q:"The respiratory pigment in humans is:",options:["Haemoglobin","Chlorophyll","Myoglobin","Carotene"],correct:0},
-{q:"Volume of air breathed in or out in normal breathing:",options:["Tidal volume","Vital capacity","Residual volume","Total lung capacity"],correct:0},
-{q:"Total lung capacity is:",options:["Sum of vital capacity and residual volume","Tidal volume only","Residual volume only","None"],correct:0},
-{q:"During exhalation, the diaphragm:",options:["Relaxes and moves up","Contracts","Flattens","Remains still"],correct:0},
-{q:"Which part of the respiratory system warms and filters air?",options:["Nasal cavity","Alveoli","Bronchioles","Diaphragm"],correct:0},
-{q:"Gaseous exchange in plants occurs mainly through:",options:["Stomata","Lenticels","Root hairs","Xylem"],correct:0},
-{q:"Guard cells control:",options:["Opening of stomata","Water absorption","Photosynthesis rate","Transpiration only"],correct:0},
-{q:"Which gas diffuses faster?",options:["CO₂","O₂","N₂","H₂O"],correct:0},
-{q:"Smoking affects:",options:["Cilia in trachea","Haemoglobin","Diaphragm","Alveoli only"],correct:0},
-{q:"Surface area of lungs is increased by:",options:["Alveoli","Bronchi","Trachea","Ribs"],correct:0},
-{q:"Lacteals are associated with:",options:["Transport of fats","Gas exchange","Blood oxygenation","Nerve impulse"],correct:0},
-{q:"Which condition reduces oxygen transport?",options:["Anaemia","Asthma","Emphysema","Both 2 & 3"],correct:3},
-{q:"Partial pressure gradient drives:",options:["Diffusion of gases","Osmosis","Active transport","Facilitated diffusion"],correct:0},
-{q:"Which respiratory disease is caused by bacteria?",options:["Tuberculosis","Asthma","Emphysema","Bronchitis"],correct:0},
-{q:"In aquatic animals, gaseous exchange occurs mainly through:",options:["Gills","Lungs","Skin","Both gills and skin"],correct:3},
-{q:"Which gas is required by plants for respiration?",options:["Oxygen","Carbon dioxide","Nitrogen","Hydrogen"],correct:0},
-{q:"CO₂ is converted to bicarbonate in:",options:["Blood plasma","Lungs","Alveoli","Tissues"],correct:0},
-{q:"Vital capacity includes:",options:["Inspiratory + expiratory reserve + tidal volume","Tidal volume only","Residual volume only","None"],correct:0},
-{q:"Residual volume remains:",options:["After forced exhalation","During normal inhalation","During tidal breathing","Never"],correct:0},
-{q:"Larynx is also called:",options:["Voice box","Wind pipe","Throat","Nostril"],correct:0},
-{q:"Pleura helps in:",options:["Lubrication and reducing friction","Gas transport","Oxygen absorption","Diaphragm movement"],correct:0},
-{q:"Asthma treatment includes:",options:["Inhalers","Surgery","Antibiotics","Rest only"],correct:0},
-{q:"CO₂ transport in plants occurs mainly as:",options:["Diffusion through stomata","Bicarbonate","Through phloem","Through xylem"],correct:0},
-{q:"Which organelle aids gaseous exchange in single-celled organisms?",options:["Cell membrane","Nucleus","Mitochondria","Ribosome"],correct:0},
-{q:"Which gas is used for photosynthesis?",options:["CO₂","O₂","N₂","H₂"],correct:0},
-{q:"Anaerobic respiration produces:",options:["Less energy than aerobic","More energy","Oxygen","CO₂"],correct:0},
-{q:"Breathing rate is controlled by:",options:["Medulla oblongata","Cerebrum","Cerebellum","Spinal cord"],correct:0}
-];
+<!-- ====== BIOLOGY: CHAPTER - GASEOUS EXCHANGE ====== -->
+<div id="bio-ch-gaseous" class="content">
+  <button class="btn" onclick="backToChapters('bio')">← Back to Chapters</button>
+  <div class="mode-toggle">
+    <button onclick="setMode('english')">English</button>
+    <button onclick="setMode('urdu')">Urdu</button>
+    <button onclick="setMode('mix')">Mix</button>
+  </div>
+
+  <h2>Biology – Chapter: Gaseous Exchange</h2>
+
+  <!-- MCQs Section -->
+  <h3>MCQs (40–50)</h3>
+  <div id="bio-gaseous-mcq">
+    <div class="option" onclick="checkMCQ(this,true,'Q1')">Which organ is the main site of gaseous exchange?<span class="icon">✔</span></div>
+    <div class="option" onclick="checkMCQ(this,false,'Q1')">Heart<span class="icon">✖</span></div>
+    <div class="option" onclick="checkMCQ(this,false,'Q1')">Stomach<span class="icon">✖</span></div>
+    <div class="option" onclick="checkMCQ(this,false,'Q1')">Liver<span class="icon">✖</span></div>
+    <!-- Add remaining MCQs similarly -->
+  </div>
+
+  <!-- Current Mistakes -->
+  <div class="mistakes">
+    <h4>Current Mistakes</h4>
+    <div id="bio-gaseous-mistakes"><p>No mistakes yet.</p></div>
+  </div>
+
+  <!-- Short Questions -->
+  <h3>Short Questions</h3>
+  <div id="bio-gaseous-short">
+    <p>Q1: Define gaseous exchange.<br><b>Ans:</b> Process of exchanging oxygen and carbon dioxide between organism and environment.</p>
+    <p>Q2: Main organ of gaseous exchange in humans?<br><b>Ans:</b> Lungs</p>
+    <p>Q3: What is alveolus?<br><b>Ans:</b> Tiny air sac in lungs where oxygen and carbon dioxide exchange occurs.</p>
+    <p>Q4: Function of diaphragm.<br><b>Ans:</b> Changes thoracic cavity volume to allow inhalation and exhalation.</p>
+    <p>Q5: Role of intercostal muscles.<br><b>Ans:</b> Assist in expanding and contracting chest during breathing.</p>
+    <!-- Continue adding all 30+ short questions -->
+  </div>
+
+  <!-- Long Questions -->
+  <h3>Long Questions</h3>
+  <div id="bio-gaseous-long">
+    <p>Q1: Describe the mechanism of breathing in humans.<br>
+    <b>Ans:</b> Inhalation: diaphragm contracts → thoracic cavity volume increases → lungs expand → air enters. Exhalation: diaphragm relaxes → thoracic cavity volume decreases → lungs compress → air exits.</p>
+
+    <p>Q2: Explain the transport of oxygen and carbon dioxide in blood.<br>
+    <b>Ans:</b> Oxygen binds to haemoglobin and is transported to tissues. Carbon dioxide is transported as bicarbonate ions (~70%), dissolved CO₂ (~7%), carbamino compounds (~23%).</p>
+
+    <p>Q3: Compare gaseous exchange in plants and humans.<br>
+    <b>Ans:</b> Humans: alveoli, lungs; Plants: stomata, lenticels, root hairs. Humans: ventilation required; Plants: diffusion sufficient.</p>
+  </div>
+
+  <!-- Rapid Revision Chart -->
+  <h3>Rapid Revision Chart</h3>
+  <table border="1" cellpadding="5" style="border-collapse:collapse;">
+    <tr><th>Term</th><th>Function / Description</th></tr>
+    <tr><td>Lungs</td><td>Main organ of gaseous exchange</td></tr>
+    <tr><td>Alveoli</td><td>Site of O₂ & CO₂ exchange</td></tr>
+    <tr><td>Diaphragm</td><td>Muscle for inhalation/exhalation</td></tr>
+    <tr><td>Intercostal muscles</td><td>Assist chest movement</td></tr>
+    <tr><td>Haemoglobin</td><td>Transports oxygen</td></tr>
+    <tr><td>Bicarbonate ions</td><td>Transport CO₂ in blood</td></tr>
+    <tr><td>Cilia</td><td>Remove dust and pathogens</td></tr>
+    <tr><td>Mucus</td><td>Traps dust & microbes</td></tr>
+    <tr><td>Stomata</td><td>Plant gaseous exchange</td></tr>
+    <tr><td>Guard cells</td><td>Control stomatal opening</td></tr>
+  </table>
+
+  <!-- Lecture Video -->
+  <h3>Lecture Video</h3>
+  <div class="video-box">
+    <iframe src="https://www.youtube.com/embed/0Y8b9wh9vIQ" allowfullscreen></iframe>
+  </div>
+
+  <!-- Game / Quiz Placeholders -->
+  <h3>Game Zone</h3>
+  <p>Rapid Fire Mode / Weak Zone: practice mistakes / MCQs quiz</p>
+</div>
