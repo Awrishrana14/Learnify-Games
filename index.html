@@ -11,7 +11,6 @@ body{
   margin:0;
   background:#e8f5e9;
 }
-
 header{
   background:#6a1b9a;
   color:white;
@@ -20,13 +19,11 @@ header{
   font-size:24px;
   font-weight:bold;
 }
-
 .container{
   max-width:900px;
   margin:auto;
   padding:15px;
 }
-
 .btn{
   display:block;
   width:100%;
@@ -40,7 +37,6 @@ header{
   cursor:pointer;
   box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
-
 .content{
   display:none;
   background:white;
@@ -48,7 +44,6 @@ header{
   padding:18px;
   border-radius:15px;
 }
-
 .option{
   display:block;
   background:#f3e5f5;
@@ -59,10 +54,8 @@ header{
   position:relative;
   font-weight:600;
 }
-
 .option.correct{ background:#c8e6c9; }
 .option.wrong{ background:#ffcdd2; }
-
 .icon{
   position:absolute;
   right:10px;
@@ -70,7 +63,6 @@ header{
   transform:translateY(-50%);
   display:none;
 }
-
 .video-box{
   position:relative;
   padding-bottom:56.25%;
@@ -101,16 +93,16 @@ header{
 <div id="bio" class="content">
 
 <button class="btn" onclick="backToSubjects()">← Back</button>
-<h2>Biology — Chapter 1: Cell Biology</h2>
 
-<button class="btn" onclick="startRapidFire()">⚡ Rapid Fire (Difficult)</button>
+<button class="btn" onclick="startRapidFire()">⚡ Rapid Fire</button>
+<button class="btn" onclick="startWeakZone()">🧠 Weak Zone Practice</button>
 
 <h3>MCQs</h3>
 
-<div id="mcqBox">
+<div id="mcqBox" data-question="Basic unit of life">
 
 <div class="option" onclick="selectMCQ(this,true)">
-Basic unit of life is?
+Cell
 <span class="icon">✔</span>
 </div>
 
@@ -152,68 +144,66 @@ Atom
 
 <script>
 
-/* ================= NAVIGATION ================= */
-
+/* ---------- navigation ---------- */
 function showPage(id){
   document.getElementById('subjects').style.display='none';
   document.getElementById(id).style.display='block';
 }
-
 function backToSubjects(){
   document.querySelectorAll('.content').forEach(c=>c.style.display='none');
   document.getElementById('subjects').style.display='block';
 }
 
-/* ================= MCQ SELECT FIX ================= */
+/* ---------- MCQ system ---------- */
+
+let mistakesStore=[];
+let weakQuestions=[];
 
 function selectMCQ(el,isCorrect){
 
-  const parent = el.parentElement;
-  const options = parent.querySelectorAll('.option');
+  const parent=el.parentElement;
+  const options=parent.querySelectorAll('.option');
 
-  // lock all options
   options.forEach(opt=>{
     opt.style.pointerEvents='none';
+    opt.querySelector('.icon').style.display='inline';
   });
 
-  // show icons properly
-  options.forEach(opt=>{
-    const icon = opt.querySelector('.icon');
-    icon.style.display='inline';
-  });
+  const qText=parent.getAttribute("data-question");
 
   if(isCorrect){
     el.classList.add('correct');
   }else{
     el.classList.add('wrong');
+    if(!mistakesStore.includes(qText)){
+      mistakesStore.push(qText);
+    }
 
-    // also highlight correct one
     options.forEach(opt=>{
       if(opt.onclick.toString().includes('true')){
         opt.classList.add('correct');
       }
     });
   }
-
 }
 
-/* ================= RAPID FIRE ================= */
+/* ---------- rapid fire data ---------- */
 
 const rapidFireQuestions=[
 {
-q:"Powerhouse of the cell is?",
+q:"Basic unit of life is?",
+options:["Cell","Tissue","Organ","Atom"],
+correct:0
+},
+{
+q:"Powerhouse of cell is?",
 options:["Nucleus","Mitochondria","Ribosome","Golgi body"],
 correct:1
 },
 {
 q:"DNA is present in?",
-options:["Nucleus","Cell wall","Membrane","Cytoplasm"],
+options:["Nucleus","Membrane","Cell wall","Cytoplasm"],
 correct:0
-},
-{
-q:"Cell membrane is?",
-options:["Freely permeable","Semi-permeable","Impermeable","Rigid"],
-correct:1
 }
 ];
 
@@ -221,6 +211,8 @@ let rfIndex=0;
 let rfScore=0;
 let rfTime=0;
 let rfTimerInterval;
+
+/* ---------- rapid fire ---------- */
 
 function startRapidFire(){
   document.getElementById("bio").style.display="none";
@@ -293,6 +285,82 @@ function checkRFAnswer(selected){
 
   rfIndex++;
   setTimeout(loadRFQuestion,800);
+}
+
+/* ---------- weak zone ---------- */
+
+function startWeakZone(){
+
+  if(mistakesStore.length===0){
+    alert("No mistakes yet.");
+    return;
+  }
+
+  weakQuestions=rapidFireQuestions.filter(q =>
+    mistakesStore.some(m=>q.q.includes(m))
+  );
+
+  if(weakQuestions.length===0){
+    alert("No weak questions matched.");
+    return;
+  }
+
+  document.getElementById("bio").style.display="none";
+  document.getElementById("rapidFireBox").style.display="block";
+
+  rfIndex=0;
+  rfScore=0;
+  rfTime=0;
+
+  startTimer();
+  loadWeakQuestion();
+}
+
+function loadWeakQuestion(){
+
+  const qBox=document.getElementById("rfQuestion");
+  const optBox=document.getElementById("rfOptions");
+  const result=document.getElementById("rfResult");
+
+  result.textContent="";
+
+  if(rfIndex>=weakQuestions.length){
+    clearInterval(rfTimerInterval);
+    qBox.textContent="🧠 Weak Zone Complete!";
+    optBox.innerHTML="";
+    result.textContent="Score: "+rfScore+" / "+weakQuestions.length;
+    return;
+  }
+
+  const q=weakQuestions[rfIndex];
+  qBox.textContent=q.q;
+  optBox.innerHTML="";
+
+  q.options.forEach((opt,i)=>{
+    const btn=document.createElement("div");
+    btn.className="option";
+    btn.textContent=opt;
+    btn.onclick=()=>checkWeakAnswer(i);
+    optBox.appendChild(btn);
+  });
+}
+
+function checkWeakAnswer(selected){
+
+  const q=weakQuestions[rfIndex];
+  const result=document.getElementById("rfResult");
+
+  if(selected===q.correct){
+    rfScore++;
+    result.textContent="✅ Correct";
+    result.style.color="green";
+  }else{
+    result.textContent="❌ Wrong";
+    result.style.color="red";
+  }
+
+  rfIndex++;
+  setTimeout(loadWeakQuestion,800);
 }
 
 </script>
